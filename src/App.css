@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+body {
+  display: flex; /* Aktivere flexbox */
+  justify-content: center; /* Sentrere horisontalt */
+  align-items: flex-start; /* Justere innholdet til toppen */
+  min-height: 100vh; /* Få containeren til å ta opp hele høyden på vinduet */
+  margin: 0; /* Fjerne standard margin */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  text-align: center; /* Sentrere teksten */
+  margin-bottom: 20px; /* Mellomrom under toppteksten */
+  font-family: sans-serif; /* Velge skrifttype */
+  color: #408bed; /* Farge på teksten */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Stil for todo-list-container */
+.todo-list {
+  width: 600px;
+  margin-top: 200px; /* Legg til mellomrom til toppen */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Stil for hvert todo-item */
+.todo-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 580px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  white-space: nowrap; /* Hindrer tekstbryting */
+}
+
+/* Stil for oppgave-tekst */
+.todo-item p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  flex-grow: 1;
+  margin-right: 10px; /* Avstand mellom tekst og knapp */
+  white-space: nowrap; /* Hindrer at teksten brytes */
+  overflow: hidden; /* Hindrer at teksten flyter over */
+  text-overflow: ellipsis; /* Legger til '...' hvis teksten er for lang */
+}
+
+/* Stil for checkbox */
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2); /* Litt større checkbox */
+}
+
+/* Stil for slett-knappen */
+#btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 40px;  /* Fast bredde */
+  height: 40px; /* Fast høyde */
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  transition: background-color 0.3s ease;
+}
+
+.todo-item button:hover {
+  background-color: #0056b3;
+}
+/* Stil for input-feltet */
+#text-box {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Stil for "Add" knappen */
+.todo-list button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-list button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.completed {
+  text-decoration: line-through; /* Gir teksten en linje gjennom seg */
+  color: gray; /* Valgfritt: gjør teksten grå for å indikere at den er fullført */
 }
